@@ -10,13 +10,13 @@ gem 'sqlite3'
 gem 'therubyracer',  platforms: :ruby
 
 
-gem 'twitter-bootstrap-rails'
 
 gem 'coffee-rails', '~> 4.0.0'
 
 gem 'uglifier', '>= 1.3.0'
 
-gem 'less-rails'
+# Use SCSS for stylesheets
+gem 'sass-rails', '~> 4.0.3'
 	
 
 # Use jquery as the JavaScript library
