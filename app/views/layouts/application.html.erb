@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HK Equities</title>
+  <%= render 'layouts/shim' %>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <%= render 'layouts/header' %>
+
+
+	<div class "container-fluid">
+		<div class="row">
+			<div class="span8"><%= yield %></div>
+			<div class="span4">
+				<h4>About HK Equities</h4>
+				<p>HK Equities is a near real-time notification service for Hong Kong Stock Exchange (HKEx) listed company announcements. Are you a capital markets or M&amp;A banker, investor, or corporate PR person who needs to be notified right after your company's announcement hits the exchange?</p>
+				<a class="btn btn-small btn-primary" href="#">Sign up now!</a>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
