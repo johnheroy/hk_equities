@@ -9,6 +9,7 @@ gem 'sqlite3'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem 'therubyracer',  platforms: :ruby
 
+gem 'clockwork', '~> 0.7.5'
 
 
 gem 'coffee-rails', '~> 4.0.0'

@@ -11,6 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20140511160500) do
+
+  create_table "announcements", force: true do |t|
+    t.date     "date"
+    t.time     "time"
+    t.text     "message"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "company_id"
+  end
+
+  create_table "companies", force: true do |t|
+    t.string   "company_name"
+    t.string   "ticker"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
