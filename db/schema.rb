@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140511160500) do
+ActiveRecord::Schema.define(version: 20140512145421) do
 
   create_table "announcements", force: true do |t|
     t.date     "date"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20140511160500) do
   end
 
   create_table "companies", force: true do |t|
-    t.string   "company_name"
+    t.string   "name"
     t.string   "ticker"
     t.datetime "created_at"
     t.datetime "updated_at"

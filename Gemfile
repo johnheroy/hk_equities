@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+gem 'nokogiri'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'
@@ -9,7 +9,7 @@ gem 'sqlite3'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem 'therubyracer',  platforms: :ruby
 
-gem 'clockwork', '~> 0.7.5'
+gem 'whenever', :require => false
 
 
 gem 'coffee-rails', '~> 4.0.0'

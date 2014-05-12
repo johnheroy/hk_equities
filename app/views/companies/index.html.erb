@@ -1,0 +1,13 @@
+<h2>HKEx Listed Companies</h2>
+<table>
+	<tr>
+		<th>Company Name</th>
+		<th>Ticker</th>
+	</tr>
+<% Company.order(:name).each do |coy| %>
+	<tr>
+		<td><%= link_to coy.name, coy %></td>
+		<td><%= coy.ticker %></td>
+	</tr>
+<% end %>
+</table>
