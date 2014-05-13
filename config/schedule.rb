@@ -21,5 +21,5 @@
 
 
 every 1.minute do
-	# rake "fetch_announcements"
+	rake "fetch_announcements"
 end

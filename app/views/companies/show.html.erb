@@ -1,12 +1,10 @@
 <h2><%= @coy.name %> (<%= @coy.ticker %>)</h2>
 
 <h3>Latest Announcements</h3>
-<table id="announcements-table" class="table table-striped">
+<table class="table table-striped">
 	<thead>
 		<tr>
 		<th>#</th>
-    	<th>Ticker</th>
-    	<th>Company</th>
     	<th>Date</th>
     	<th>Time</th>
     	<th>Announcement</th>
@@ -17,8 +15,12 @@
   	<% @coy.announcements.each do |annc| %>
   	<tr>
   		<td>#</td>
-  		<td><%= </td>
+  		<td><%= annc.date %></td>
+  		<td><%= annc.time %></td>
+  		<td><%= annc.message %></td>
+  		<td><%= annc.url %></td>
   	</tr>
+  	<% end %>
   </tbody>
 </table>
 
