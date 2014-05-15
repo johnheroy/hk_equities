@@ -4,24 +4,33 @@ task :fetch_announcements => :environment do
 	require 'nokogiri'
 	require 'open-uri'
 
+	#hk = TimeZone.new
+
 	def process_announcement(announcement)
+		link = "http://www.hkexnews.hk" + announcement.css("a")[0]["href"]
 		raw_text = announcement.text
 
-		date = raw_text[0,10] # => DD/MM/YYYY
-		time = raw_text[10, 5] # => HH:MM
-		ticker = raw_text[15, 5].to_i.to_s + ".HK"
+		year = raw_text[6,4].to_i
+		month = raw_text[3,2].to_i
+		day = raw_text[0,2].to_i
+		hour = raw_text[10,2].to_i
+		min = raw_text[13,2].to_i
+
+		t = Time.new(year, month, day, hour, min)
+		ticker_integer = raw_text[15, 5].to_i
+		ticker_string = ticker_integer.to_s + ".HK"
 		name = announcement.css("td nobr").text.split(" ").map {|word| word.capitalize}.join(" ")
 		document_name = announcement.css("a.news").text.split(" ").map {|word| word.capitalize}.join(" ")
 		
-		coy = Company.new(name: name, ticker: ticker)
+		coy = Company.new(name: name, ticker: ticker_string, hk_ticker: ticker_integer)
 		if !coy.save # if company is already in database
-			coy = Company.where(ticker: ticker)
+			coy = Company.find_by_ticker(ticker_string) # use .first because where returns array
 		end
-		Announcement.create(date: date, 
-							time: time, 
+		Announcement.create(datetime: t, 
+							url: link,
 							message: document_name, 
 							company: coy, 
-							unique_code: (date + time + document_name + coy.name + coy.ticker))
+							unique_code: (t.to_formatted_s(:db) + document_name + coy.name + coy.ticker))
 	end
 
 	puts "Fetching latest announcements..."

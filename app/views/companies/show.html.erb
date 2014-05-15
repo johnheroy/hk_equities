@@ -5,20 +5,18 @@
 	<thead>
 		<tr>
 		<th>#</th>
-    	<th>Date</th>
     	<th>Time</th>
     	<th>Announcement</th>
     	<th>Link</th>
     </tr>
   </thead>
   <tbody id="announcements-body">
-  	<% @coy.announcements.each do |annc| %>
+  	<% @coy.announcements.each_with_index do |annc ,i| %>
   	<tr>
-  		<td>#</td>
-  		<td><%= annc.date %></td>
-  		<td><%= annc.time %></td>
+  		<td><%= i+1 %></td>
+  		<td><%= annc.datetime %></td>
   		<td><%= annc.message %></td>
-  		<td><%= annc.url %></td>
+  		<td><a href="<%= annc.url %>">file</a></td>
   	</tr>
   	<% end %>
   </tbody>

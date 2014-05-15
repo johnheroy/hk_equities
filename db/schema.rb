@@ -11,10 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140512183809) do
+ActiveRecord::Schema.define(version: 20140515211632) do
 
   create_table "announcements", force: true do |t|
-    t.date     "date"
     t.time     "time"
     t.text     "message"
     t.string   "url"
@@ -22,6 +21,7 @@ ActiveRecord::Schema.define(version: 20140512183809) do
     t.datetime "updated_at"
     t.integer  "company_id"
     t.string   "unique_code"
+    t.datetime "datetime"
   end
 
   create_table "companies", force: true do |t|
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20140512183809) do
     t.string   "ticker"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "hk_ticker"
   end
 
 end

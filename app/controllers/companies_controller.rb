@@ -6,10 +6,11 @@ class CompaniesController < ApplicationController
 	end
 
   def index
+  	
   end
 
   def show
-  	# some more code
+
   end
 
 end

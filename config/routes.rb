@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
+  root to: 'welcome#index'
+  get '/company_index' => 'companies#index', as: 'company_index'
+  resources :announcements
+  resources :companies
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -13,8 +17,6 @@ Rails.application.routes.draw do
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
-  resources :announcements
-  resources :companies
 
   # Example resource route with options:
   #   resources :products do
