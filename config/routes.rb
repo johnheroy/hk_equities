@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  root to: 'welcome#index'
+  root to: 'announcements#show_latest_ten'
   get '/company_index' => 'companies#index', as: 'company_index'
-  resources :announcements
+
   resources :companies
+  resources :announcements
 
 
   # The priority is based upon order of creation: first created -> highest priority.

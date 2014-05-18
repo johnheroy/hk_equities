@@ -16,15 +16,15 @@ task :fetch_announcements => :environment do
 		hour = raw_text[10,2].to_i
 		min = raw_text[13,2].to_i
 
-		t = Time.new(year, month, day, hour, min)
+		t = Time.zone.local(year, month, day, hour, min)
 		ticker_integer = raw_text[15, 5].to_i
 		ticker_string = ticker_integer.to_s + ".HK"
 		name = announcement.css("td nobr").text.split(" ").map {|word| word.capitalize}.join(" ")
 		document_name = announcement.css("a.news").text.split(" ").map {|word| word.capitalize}.join(" ")
 		
 		coy = Company.new(name: name, ticker: ticker_string, hk_ticker: ticker_integer)
-		if !coy.save # if company is already in database
-			coy = Company.find_by_ticker(ticker_string) # use .first because where returns array
+		if !coy.save
+			coy = Company.find_by_ticker(ticker_string)
 		end
 		Announcement.create(datetime: t, 
 							url: link,

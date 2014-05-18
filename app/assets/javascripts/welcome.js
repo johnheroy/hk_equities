@@ -37,7 +37,7 @@ var generateDummyAnnouncement = function() {
 	var ticker = company[1];
 	var company_name = company[0];
 	var msg = messages[Math.floor(Math.random() * messages.length)];
-	return new Announcement(ticker, company_name, "May 10", "3:45pm", msg, "dummy url");
+	return new Announcement(ticker, company_name, "May 10", "3:45pm", msg, "<i class=\"fa fa-camera-retro\"></i>");
 };
 
 // async call to the API for latest 10 anncs, in order

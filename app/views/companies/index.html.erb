@@ -9,7 +9,7 @@
 <% Company.order(:hk_ticker).each do |coy| %>
 	<tbody>
 		<tr>
-			<td><%= link_to coy.name, coy %></td>
+			<td><%= link_to coy.name, coy %> (<%= coy.announcements.count %>)</td>
 			<td><%= coy.ticker %></td>
 		</tr>
 	</tbody>

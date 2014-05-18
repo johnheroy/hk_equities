@@ -1,25 +1,25 @@
-<h2><%= @coy.name %> (<%= @coy.ticker %>)</h2>
-
-<h3>Latest Announcements</h3>
+<h2>Latest 10 HKEx Listed Company Announcements</h2>
 <table class="table table-striped">
 	<thead>
 		<tr>
-		<th>#</th>
+			<th>#</th>
     	<th>Time</th>
+    	<th>Company</th>
+    	<th>Ticker</th>
     	<th>Announcement</th>
     	<th>Link</th>
     </tr>
   </thead>
   <tbody>
-  	<% @coy.announcements.order("datetime desc").each_with_index do |annc ,i| %>
+  	<% @announcements.each_with_index do |annc ,i| %>
   	<tr>
   		<td><%= i+1 %></td>
   		<td><%= annc.datetime.to_formatted_s(:long) %> HKT</td>
+  		<td><%= annc.company.name %></td>
+  		<td><%= annc.company.ticker %></td>
   		<td><%= annc.message %></td>
   		<td><a href="<%= annc.url %>" target="_blank"><i class="fa fa-file-pdf-o"> </i></a></td>
   	</tr>
   	<% end %>
   </tbody>
 </table>
-
-
