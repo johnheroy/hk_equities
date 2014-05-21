@@ -1,0 +1,30 @@
+<div class="col-sm-12" id="sign_up_box">
+  <% provide(:title, 'Sign up') %>
+  <h2>Sign up</h2>
+
+  <%= form_for(@user) do |f| %>
+    <%= render 'shared/error_messages' %>
+
+    <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    </div>
+
+    <div class="form-group">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+    </div>
+
+    <div class="form-group">
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+    </div>
+
+    <div class="form-group">
+    <%= f.label :password_confirmation, "Confirmation" %>
+    <%= f.password_field :password_confirmation %>
+    </div>
+
+    <%= f.submit "Create my account", class: "btn btn-default" %>
+  <% end %>
+</div>

@@ -1,17 +1,21 @@
+<div class="col-sm-9">
 <h2>HKEx Listed Companies</h2>
-<table class="table table-striped">
-	<thead>
-		<tr>
-			<th>Company Name</th>
-			<th>Ticker</th>
-		</tr>
-	</thead>
-<% Company.order(:hk_ticker).each do |coy| %>
-	<tbody>
-		<tr>
-			<td><%= link_to coy.name, coy %> (<%= coy.announcements.count %>)</td>
-			<td><%= coy.ticker %></td>
-		</tr>
-	</tbody>
-<% end %>
-</table>
+	
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Company Name</th>
+				<th>Ticker</th>
+			</tr>
+		</thead>
+	<% Company.order(:hk_ticker).each do |coy| %>
+		<tbody>
+			<tr>
+				<td><%= link_to coy.name, show_ticker_path(coy.hk_ticker) %> (<%= coy.announcements.count %>)</td>
+				<td><%= coy.ticker %></td>
+			</tr>
+		</tbody>
+	<% end %>
+	</table>
+</div>
+<%= render 'layouts/sidebar' %>

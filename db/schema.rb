@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140515211632) do
+ActiveRecord::Schema.define(version: 20140521124722) do
 
   create_table "announcements", force: true do |t|
     t.time     "time"
@@ -24,12 +24,31 @@ ActiveRecord::Schema.define(version: 20140515211632) do
     t.datetime "datetime"
   end
 
+  create_table "assignments", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "companies", force: true do |t|
     t.string   "name"
     t.string   "ticker"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "hk_ticker"
+    t.string   "pretty_name"
+    t.string   "bloomberg_subindustry"
   end
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.string   "remember_token"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email"
+  add_index "users", ["remember_token"], name: "index_users_on_remember_token"
 
 end

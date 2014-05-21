@@ -13,4 +13,9 @@ class CompaniesController < ApplicationController
 
   end
 
+  def show_ticker
+  	@coy = Company.find_by_hk_ticker(params[:hk_ticker])
+  	render "show"
+  end
+
 end

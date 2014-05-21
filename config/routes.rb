@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  root to: 'announcements#show_latest_ten'
-  get '/company_index' => 'companies#index', as: 'company_index'
-
   resources :companies
   resources :announcements
-
+  resources :users
+  root  'announcements#show_latest_ten'
+  match '/signup',       to: 'users#new',             via: 'get'
+  match '/:hk_ticker',   to: 'companies#show_ticker', via: 'get', as: "show_ticker"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
