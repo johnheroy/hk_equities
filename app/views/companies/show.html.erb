@@ -1,5 +1,9 @@
 <div class="col-sm-9">
+<% if !@coy.pretty_name.blank? %>
+<h2><%= @coy.pretty_name %> (<%= @coy.ticker %>)</h2>
+<% else %>
 <h2><%= @coy.name %> (<%= @coy.ticker %>)</h2>
+<% end %>
 
 <h3>Latest Announcements</h3>
 <table class="table table-striped">

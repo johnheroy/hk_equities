@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>HK Equities</title>
+  <title><%= full_title(yield(:title)) %></title>
   <%= render 'layouts/shim' %>
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
@@ -18,7 +18,11 @@
 		<div class="row">
 			<%= yield %>
 		</div>
+    
 	</div>
+
+  <%= render 'layouts/footer' %>
+  <%= debug(params) if Rails.env.development? %>
 
 </body>
 </html>

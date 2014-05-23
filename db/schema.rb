@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140521124722) do
+ActiveRecord::Schema.define(version: 20140523104137) do
 
   create_table "announcements", force: true do |t|
     t.time     "time"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20140521124722) do
     t.integer  "hk_ticker"
     t.string   "pretty_name"
     t.string   "bloomberg_subindustry"
+    t.string   "bloomberg_security_type"
   end
 
   create_table "users", force: true do |t|

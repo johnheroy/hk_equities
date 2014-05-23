@@ -4,8 +4,6 @@ task :fetch_announcements => :environment do
 	require 'nokogiri'
 	require 'open-uri'
 
-	#hk = TimeZone.new
-
 	def process_announcement(announcement)
 		link = "http://www.hkexnews.hk" + announcement.css("a")[0]["href"]
 		raw_text = announcement.text
@@ -26,11 +24,12 @@ task :fetch_announcements => :environment do
 		if !coy.save
 			coy = Company.find_by_ticker(ticker_string)
 		end
+
 		Announcement.create(datetime: t, 
 							url: link,
 							message: document_name, 
 							company: coy, 
-							unique_code: (t.to_formatted_s(:db) + document_name + coy.name + coy.ticker))
+							unique_code: (t.to_formatted_s(:db) + document_name + coy.ticker))
 	end
 
 	puts "Fetching latest announcements..."

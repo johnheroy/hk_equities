@@ -16,7 +16,11 @@
     	<tr>
     		<td><%= i+1 %></td>
     		<td><%= annc.datetime.to_formatted_s(:long) %> HKT</td>
-    		<td><%= annc.company.name %></td>
+        <% if !annc.company.pretty_name.blank? %>
+    		  <td><%= annc.company.pretty_name %></td>
+        <% else %>
+          <td><%= annc.company.name %></td>
+        <% end %>
     		<td><%= annc.company.ticker %></td>
     		<td><%= annc.message %></td>
     		<td><a href="<%= annc.url %>" target="_blank"><i class="fa fa-file-pdf-o"> </i></a></td>

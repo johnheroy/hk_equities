@@ -2,8 +2,12 @@ Rails.application.routes.draw do
   resources :companies
   resources :announcements
   resources :users
+  resources :sessions, only: [:new, :create, :destroy]
   root  'announcements#show_latest_ten'
   match '/signup',       to: 'users#new',             via: 'get'
+  match '/help',         to: 'static_pages#help',     via: 'get'
+  match '/about',        to: 'static_pages#about',    via: 'get'
+  match '/contact',      to: 'static_pages#contact',  via: 'get'
   match '/:hk_ticker',   to: 'companies#show_ticker', via: 'get', as: "show_ticker"
 
   # The priority is based upon order of creation: first created -> highest priority.

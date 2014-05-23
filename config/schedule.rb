@@ -21,5 +21,9 @@
 
 
 every 1.minute do
-	# rake "fetch_announcements", environment: "development"
+	rake "fetch_announcements"
+end
+
+every 1.week do # set this to run on saturday morning HK
+	# rake "populate_companies"
 end

@@ -11,7 +11,11 @@
 	<% Company.order(:hk_ticker).each do |coy| %>
 		<tbody>
 			<tr>
+				<% if !coy.pretty_name.blank? %>
+				<td><%= link_to coy.pretty_name, show_ticker_path(coy.hk_ticker) %> (<%= coy.announcements.count %>)</td>
+				<% else %>
 				<td><%= link_to coy.name, show_ticker_path(coy.hk_ticker) %> (<%= coy.announcements.count %>)</td>
+				<% end %>
 				<td><%= coy.ticker %></td>
 			</tr>
 		</tbody>
