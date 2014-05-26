@@ -1,28 +1,25 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-<head>
-  <title><%= full_title(yield(:title)) %></title>
-  <%= render 'layouts/shim' %>
-  <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
-  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-  <%= render 'layouts/header' %>
-
-	<div class="container-fluid">
-		<div class="row">
-			<%= yield %>
+	<head>
+  		<title><%= full_title(yield(:title)) %></title>
+		<%= render 'layouts/bootstrapcdn' %>
+		<%= stylesheet_link_tag    "application", :media => "all" %>
+		<%= javascript_include_tag "application" %>
+		<%= csrf_meta_tags %>
+		<%= render 'layouts/shim' %>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	<body>
+		<%= render 'layouts/header' %>
+		<div class="container-fluid">
+			<div class="row">
+				<% flash.each do |key, value| %>
+        			<div class="alert alert-<%= key %>"><%= value %></div>
+      			<% end %>
+				<%= yield %>
+			</div>
+			<%= render 'layouts/footer' %>
+			<%= debug(params) if Rails.env.development? %>
 		</div>
-    
-	</div>
-
-  <%= render 'layouts/footer' %>
-  <%= debug(params) if Rails.env.development? %>
-
-</body>
+	</body>
 </html>

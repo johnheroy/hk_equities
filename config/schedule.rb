@@ -25,5 +25,5 @@ every 1.minute do
 end
 
 every 1.week do # set this to run on saturday morning HK
-	# rake "populate_companies"
+	rake "populate_companies"
 end

@@ -1,32 +1,32 @@
 <div class="col-sm-9">
-  <h2>Latest 10 HKEx Listed Company Announcements</h2>
-  <table class="table table-striped">
-  	<thead>
-  		<tr>
-  			<th>#</th>
-      	<th>Time</th>
-      	<th>Company</th>
-      	<th>Ticker</th>
-      	<th>Announcement</th>
-      	<th>Link</th>
-      </tr>
-    </thead>
-    <tbody>
-    	<% @announcements.each_with_index do |annc ,i| %>
-    	<tr>
-    		<td><%= i+1 %></td>
-    		<td><%= annc.datetime.to_formatted_s(:long) %> HKT</td>
-        <% if !annc.company.pretty_name.blank? %>
-    		  <td><%= annc.company.pretty_name %></td>
-        <% else %>
-          <td><%= annc.company.name %></td>
-        <% end %>
-    		<td><%= annc.company.ticker %></td>
-    		<td><%= annc.message %></td>
-    		<td><a href="<%= annc.url %>" target="_blank"><i class="fa fa-file-pdf-o"> </i></a></td>
-    	</tr>
-    	<% end %>
-    </tbody>
-  </table>
+    <h2>Latest 10 HKEx Listed Company Announcements</h2>
+    <table class="table table-striped well">
+        <thead>
+      		<tr>
+          		<th>#</th>
+              	<th>Time</th>
+              	<th>Company</th>
+              	<th>Ticker</th>
+                <th>Announcement</th>
+                <th>Link</th>
+            </tr>
+        </thead>
+        <tbody>
+        	<% @announcements.each_with_index do |annc ,i| %>
+            	<tr>
+            		<td><%= i+1 %></td>
+            		<td><%= annc.datetime.to_formatted_s(:long) %> HKT</td>
+                <% if !annc.company.pretty_name.blank? %>
+            		<td><%= annc.company.pretty_name %></td>
+                <% else %>
+                    s<td><%= annc.company.name %></td>
+                <% end %>
+            		<td><%= annc.company.ticker %></td>
+            		<td><%= annc.message %></td>
+            		<td><a href="<%= annc.url %>" target="_blank"><i class="fa fa-file-pdf-o"> </i></a></td>
+            	</tr>
+        	<% end %>
+        </tbody>
+    </table>
 </div>
 <%= render 'layouts/sidebar' %>
