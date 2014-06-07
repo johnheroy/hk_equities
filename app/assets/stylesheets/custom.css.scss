@@ -1,9 +1,21 @@
-/* there is nothing here */
+/* general */
+
+h2 {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.container-fluid {
+  max-width: 888px;
+}
 
 .navbar {
 	border: 0px;
 	border-radius: 0px;
-	/*background-color: #0F4D92;*/
+}
+
+.navbar-inverse {
+  background-color: #2E0854;
 }
 
 #logo {
@@ -49,7 +61,7 @@ input {
 footer {
   margin-top: 45px;
   padding-top: 5px;
-  border-top: 1px solid black;
+  border-top: 2px solid lightgray;
   color: gray;
   a {
     color: gray;
@@ -59,6 +71,7 @@ footer {
   }
   small {
     float: left;
+    font-size: 12px;
   }
   ul {
     float: right;
@@ -77,3 +90,83 @@ footer {
   margin-top: 45px;
 
 }
+
+/* tables */
+
+table#latest-ten {
+  thead { 
+    tr {
+      display: block;
+      position: relative;
+      max-width: 100%;
+    }
+    display: block;
+    width: 100%;
+  }
+
+  tbody {
+    display: block;
+    height: 388px;
+    overflow: scroll;
+    font-size: 12px;
+    width: 100%;
+  }
+
+  .latest-ordering {
+    width: 5%;
+  }
+
+  .latest-time {
+    width: 13%;
+  }
+
+  .latest-company {
+    width: 25%;
+  }
+
+  .latest-ticker {
+    width: 10%;
+  }
+
+  .latest-announcement {
+    width: 40%;
+  }
+
+  .latest-link {
+    width: 5%;
+  }
+}
+
+table#company-index {
+  thead {
+    tr {
+      display: block;
+      position: relative;
+      max-width: 100%;
+    }
+    display: block;
+    width: 100%;
+  }
+
+  tbody {
+    display: block;
+    height: 388px;
+    overflow: scroll;
+    font-size: 13px;
+    width: 100%;
+    tr {
+      height: 20px;
+    }
+  }
+
+  
+  .company-index-name {
+    width: 100%;
+  }
+
+  .company-index-ticker {
+    width: 100%;
+  }
+
+}
+

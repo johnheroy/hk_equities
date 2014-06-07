@@ -2,11 +2,12 @@
 <html>
 	<head>
   		<title><%= full_title(yield(:title)) %></title>
-		<%= render 'layouts/bootstrapcdn' %>
+  		<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+  		<link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 		<%= stylesheet_link_tag    "application", :media => "all" %>
 		<%= javascript_include_tag "application" %>
+		<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 		<%= csrf_meta_tags %>
-		<%= render 'layouts/shim' %>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	</head>
 	<body>

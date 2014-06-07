@@ -1,3 +1,5 @@
+<% provide(:title, @coy.hk_ticker.to_s) %>
+
 <div class="col-sm-9">
 <% if !@coy.pretty_name.blank? %>
     <h2><%= @coy.pretty_name %> (<%= @coy.ticker %>)</h2>

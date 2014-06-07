@@ -1,0 +1,1 @@
+Time::DATE_FORMATS[:hk_annc_time] = '%H:%M HKT %d/%m/%y'

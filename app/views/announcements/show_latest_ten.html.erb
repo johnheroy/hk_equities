@@ -1,30 +1,30 @@
 <div class="col-sm-9">
-    <h2>Latest 10 HKEx Listed Company Announcements</h2>
-    <table class="table table-striped well">
+    <h2>Latest Announcements</h2>
+    <table class="table table-striped well" id="latest-ten">
         <thead>
       		<tr>
-          		<th>#</th>
-              	<th>Time</th>
-              	<th>Company</th>
-              	<th>Ticker</th>
-                <th>Announcement</th>
-                <th>Link</th>
+          		<th class="latest-ordering">#</th>
+              	<th class="latest-time">Time</th>
+              	<th class="latest-company">Company</th>
+              	<th class="latest-ticker" style="padding-left: 12px">Ticker</th>
+                <th class="latest-announcement" style="padding-left: 14px">Announcement</th>
+                <th class="latest-link">Link</th>
             </tr>
         </thead>
         <tbody>
         	<% @announcements.each_with_index do |annc ,i| %>
-            	<tr>
-            		<td><%= i+1 %></td>
-            		<td><%= annc.datetime.to_formatted_s(:long) %> HKT</td>
+        	<tr>
+        		<td class="latest-ordering"><%= i+1 %></td>
+        		<td class="latest-time"><%= annc.datetime.to_formatted_s(:hk_annc_time) %></td>
                 <% if !annc.company.pretty_name.blank? %>
-            		<td><%= annc.company.pretty_name %></td>
+                    <td class="latest-company"><%= link_to annc.company.pretty_name, show_ticker_path(annc.company.hk_ticker) %></td>
                 <% else %>
-                    s<td><%= annc.company.name %></td>
+                    <td class="latest-company"><%= link_to annc.company.name, show_ticker_path(annc.company.hk_ticker) %></td>
                 <% end %>
-            		<td><%= annc.company.ticker %></td>
-            		<td><%= annc.message %></td>
-            		<td><a href="<%= annc.url %>" target="_blank"><i class="fa fa-file-pdf-o"> </i></a></td>
-            	</tr>
+        		<td class="latest-ticker"><%= annc.company.ticker %></td>
+        		<td class="latest-announcement"><%= annc.message %></td>
+        		<td class="latest-link"><a href="<%= annc.url %>" target="_blank"><i class="fa fa-file-pdf-o"> </i></a></td>
+        	</tr>
         	<% end %>
         </tbody>
     </table>
