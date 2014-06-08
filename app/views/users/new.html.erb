@@ -1,6 +1,6 @@
 <% provide(:title, 'Sign up') %>
 
-<div class="col-sm-6 col-sm-offset-3" id="sign_up_box">
+<div id="sign-up-box">
   
   <h2>Sign up</h2>
 
@@ -14,17 +14,17 @@
 
     <div class="form-group">
     <%= f.label :email %>
-    <%= f.text_field :email %>
+    <%= f.text_field :email, class: "form-control" %>
     </div>
 
     <div class="form-group">
     <%= f.label :password %>
-    <%= f.password_field :password %>
+    <%= f.password_field :password, class: "form-control" %>
     </div>
 
     <div class="form-group">
     <%= f.label :password_confirmation, "Confirmation" %>
-    <%= f.password_field :password_confirmation %>
+    <%= f.password_field :password_confirmation, class: "form-control" %>
     </div>
 
     <%= f.submit "Create my account", class: "btn btn-default" %>

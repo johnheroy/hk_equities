@@ -18,6 +18,10 @@ h2 {
   background-color: #2E0854;
 }
 
+.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover, .navbar-inverse .navbar-nav>.open>a:focus {
+  background-color: #592675;
+}
+
 #logo {
   font-size: 1.5em;
   color: white;
@@ -37,8 +41,10 @@ input, textarea, select, .uneditable-input {
   margin-bottom: 15px;
 }
 
-#sign_up_box {
-  max-width: 400px;
+#sign-up-box {
+  max-width: 388px;
+  margin: auto;
+
 }
 
 input {
