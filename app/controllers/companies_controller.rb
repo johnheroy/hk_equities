@@ -13,6 +13,26 @@ class CompaniesController < ApplicationController
 
 	end
 
+	def follow
+		@coy = Company.find_by_hk_ticker(params[:hk_ticker])
+		@coy.users << current_user
+
+		respond_to do |format|
+			format.html { redirect_to show_ticker_path }
+			format.js
+		end
+	end
+
+	def unfollow 
+		@coy = Company.find_by_hk_ticker(params[:hk_ticker])
+		@coy.users.delete(current_user)
+		
+		respond_to do |format|
+			format.html { redirect_to show_ticker_path }
+			format.js
+		end
+	end
+
 	def show_ticker
 		@coy = Company.find_by_hk_ticker(params[:hk_ticker])
 		render "show"

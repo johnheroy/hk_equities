@@ -12,6 +12,10 @@ Rails.application.routes.draw do
 	match '/contact',      to: 'static_pages#contact',  via: 'get'
 	match '/:hk_ticker',   to: 'companies#show_ticker', via: 'get', as: "show_ticker"
 
+	# these 2 may be completely wrong
+  	match '/:hk_ticker/follow',       to: 'companies#follow',      via: 'get', as: "follow"
+  	match '/:hk_ticker/unfollow',     to: 'companies#unfollow',    via: 'get', as: "unfollow"
+
 	# The priority is based upon order of creation: first created -> highest priority.
 	# See how all your routes lay out with "rake routes".
 

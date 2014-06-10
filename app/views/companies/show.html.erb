@@ -1,10 +1,18 @@
 <% provide(:title, @coy.hk_ticker.to_s) %>
 
-<div class="col-sm-9">
+<div class=<%= signed_in? ? "col-sm-12" : "col-sm-9"%>>
 <% if !@coy.pretty_name.blank? %>
     <h2><%= @coy.pretty_name %> (<%= @coy.ticker %>)</h2>
 <% else %>
     <h2><%= @coy.name %> (<%= @coy.ticker %>)</h2>
+<% end %>
+
+<% if signed_in? %>
+  <% if current_user.companies.include? @coy %>
+    <%= link_to "Following", unfollow_path, class: "btn btn-success btn-md", id: dom_id(@coy), remote: true %>
+  <% else %>
+    <%= link_to "Not Followed", follow_path, class: "btn btn-primary btn-md", id: dom_id(@coy), remote: true %>
+  <% end %>
 <% end %>
 
 <h3>Latest Announcements</h3>
@@ -29,5 +37,7 @@
     </tbody>
 </table>
 </div>
+<% if !signed_in? %>
 <%= render 'layouts/sidebar' %>
+<% end %>
 

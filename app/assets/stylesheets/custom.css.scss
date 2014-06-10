@@ -25,7 +25,6 @@ h2 {
 #logo {
   font-size: 1.5em;
   color: white;
-  text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: bold;
   line-height: 1;
@@ -41,7 +40,7 @@ input, textarea, select, .uneditable-input {
   margin-bottom: 15px;
 }
 
-#sign-up-box {
+#sign-up-box, #sign-in-box {
   max-width: 388px;
   margin: auto;
 
@@ -143,7 +142,7 @@ table#latest-ten {
   }
 }
 
-table#company-index {
+table#company-index, table#company-subscriptions {
   thead {
     tr {
       display: block;
@@ -171,7 +170,7 @@ table#company-index {
   }
 
   .company-index-ticker {
-    width: 100%;
+    width: 50%;
   }
 
 }

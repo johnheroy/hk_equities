@@ -1,14 +1,15 @@
 <% provide(:title, "Sign in") %>
-<h2>Sign in</h2>
 
-<div class="span6 offset3">
-  <%= form_for(:session, url: sessions_path) do |f| %>
+<div id="sign-in-box">
+	<h2>Sign in</h2>
+
+ 	<%= form_for(:session, url: sessions_path) do |f| %>
 
     <%= f.label :email %>
-    <%= f.text_field :email %>
+    <%= f.text_field :email, class: "form-control", placeholder: "Enter email" %>
 
     <%= f.label :password %>
-    <%= f.password_field :password %>
+    <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
 
     <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
   <% end %>

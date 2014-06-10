@@ -17,7 +17,7 @@ gem 'therubyracer',  platforms: :ruby
 # what does this one do?
 
 gem 'whenever', :require => false
-
+gem 'jquery-turbolinks'
 
 gem 'coffee-rails', '~> 4.0.0'
 
