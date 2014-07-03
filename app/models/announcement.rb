@@ -8,7 +8,7 @@ class Announcement < ActiveRecord::Base
 	scope :recent, order("created_at desc").limit(3)
 
 	def send_notifications
-		# send emails with annc notifs to users who follow
+		AnnouncementsMailer.alert(self).deliver
 	end
 
 end

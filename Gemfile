@@ -39,7 +39,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 group :production do
-  gem 'pg'
+  gem 'mysql2'
   gem 'rails_12factor'
 end
 
