@@ -19,9 +19,6 @@ task :fetch_announcements => :environment do
 		ticker_string = ticker_integer.to_s + ".HK"
 		name = announcement.css("td nobr").text.split(" ").map {|word| word.capitalize}.join(" ")
 		document_name = announcement.css("a.news").text.split(" ").map {|word| word.capitalize}.join(" ")
-		
-		puts name
-		puts name.encoding.name
 
 		coy = Company.new(name: name, ticker: ticker_string, hk_ticker: ticker_integer)
 		if !coy.save
@@ -29,7 +26,6 @@ task :fetch_announcements => :environment do
 		end
 
 		announcement_code = t.to_s + document_name[0,10] + coy.ticker
-
 		Announcement.create(datetime: t, 
 							url: link,
 							message: document_name, 
