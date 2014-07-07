@@ -20,6 +20,9 @@ task :fetch_announcements => :environment do
 		name = announcement.css("td nobr").text.split(" ").map {|word| word.capitalize}.join(" ")
 		document_name = announcement.css("a.news").text.split(" ").map {|word| word.capitalize}.join(" ")
 		
+		puts name
+		puts name.encoding.name
+
 		coy = Company.new(name: name, ticker: ticker_string, hk_ticker: ticker_integer)
 		if !coy.save
 			coy = Company.find_by_ticker(ticker_string)
