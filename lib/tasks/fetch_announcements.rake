@@ -29,7 +29,7 @@ task :fetch_announcements => :environment do
 							url: link,
 							message: document_name, 
 							company: coy, 
-							unique_code: (t + document_name + coy.ticker)
+							unique_code: (t + document_name + coy.ticker))
 	end
 
 	puts "Fetching latest announcements..."
