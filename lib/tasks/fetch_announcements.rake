@@ -25,11 +25,13 @@ task :fetch_announcements => :environment do
 			coy = Company.find_by_ticker(ticker_string)
 		end
 
+		announcement_code = t.to_s + document_name[0,10] + coy.ticker
+
 		Announcement.create(datetime: t, 
 							url: link,
 							message: document_name, 
 							company: coy, 
-							unique_code: (t.to_s + document_name[0,10] + coy.ticker))
+							unique_code: announcement_code)
 	end
 
 	puts "Fetching latest announcements..."
