@@ -159,13 +159,10 @@ table#company-index, table#company-subscriptions {
     overflow: scroll;
     font-size: 13px;
     width: 100%;
-    tr {
-      height: 20px;
-    }
   }
 
   
-  .company-index-name {
+  .company-index-name, .company-sub-name {
     width: 100%;
   }
 
