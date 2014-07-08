@@ -7,8 +7,7 @@ class AnnouncementsMailer < ActionMailer::Base
 	#   en.announcements_mailer.announcement_alert.subject
 	#
 	def alert(annc, user)
-		@annc = annc
-		@greeting = annc.company.name.upcase + " (#{annc.company.hk_ticker}) has posted an announcement at #{annc.datetime.to_formatted_s(:short)}: #{message}."
+		@greeting = annc.company.name.upcase + " (#{annc.company.hk_ticker}) has posted an announcement at #{annc.datetime.to_formatted_s(:short)}: #{annc.message}."
 
 		mail to: user.email, subject: "HK Equities Alert (#{annc.company.hk_ticker})"
 	end
