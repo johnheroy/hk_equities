@@ -6,13 +6,10 @@ class AnnouncementsMailer < ActionMailer::Base
 	#
 	#   en.announcements_mailer.announcement_alert.subject
 	#
-	def alert(annc)
-		#@annc = annc
-		#@users = @annc.users
+	def alert(annc, user)
+		@annc = annc
+		@greeting = annc.company.name.upcase + " (#{annc.company.hk_ticker}) has posted an announcement at #{annc.datetime.to_formatted_s(:short)}: #{message}."
 
-		# Send all the announcements parsed into an email to each user's email
-		#@users.each do |user|
-		#	mail to: user.email, subject: "HK Equities Alert (#{@annc.hk_ticker})"
-		#end
+		mail to: user.email, subject: "HK Equities Alert (#{annc.company.hk_ticker})"
 	end
 end

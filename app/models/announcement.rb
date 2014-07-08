@@ -8,7 +8,10 @@ class Announcement < ActiveRecord::Base
 	scope :recent, order("created_at desc").limit(3)
 
 	def send_notifications
-		AnnouncementsMailer.alert(self).deliver
+		users = self.company.users
+		users.each do |user|
+			AnnouncementsMailer.alert(self, user).deliver
+		end
 	end
 
 end
