@@ -41,7 +41,7 @@
 	<% current_user.companies.order(:hk_ticker).each do |coy| %>
 		<tr>
 			<td class="company-sub-name"><%= link_to (coy.pretty_name.blank? ? coy.name : coy.pretty_name), show_ticker_path(coy.hk_ticker) %></td>
-			<td><%= coy.ticker %></td>
+			<td class="company-sub-ticker"><%= coy.ticker %></td>
 			<td><%= link_to "Unfollow", unfollow_path(coy.hk_ticker), class: "btn btn-danger btn-xs", id: (dom_id(coy) + "-current"), remote: true %></td>
 		<tr>
 	<% end %>
