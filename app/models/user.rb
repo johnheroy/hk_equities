@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
 	has_many :assignments
 	has_many :companies, through: :assignments
 
+	after_save :notify_new_user
+
 	before_save { self.email = email.downcase }
 	before_create :create_remember_token
 	validates :name, presence: true, length: { maximum: 50 }
@@ -23,5 +25,9 @@ class User < ActiveRecord::Base
 
 		def create_remember_token
 			self.remember_token = User.digest(User.new_remember_token)
+		end
+
+		def notify_new_user
+			UsersMailer.new_user(self).deliver
 		end
 end
