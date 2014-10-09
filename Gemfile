@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
 
-gem 'nokogiri'
+gem 'nokogiri', '1.6.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'
@@ -55,6 +55,7 @@ gem 'railties'
 # Use Capistrano for deployment
 group :development do
   gem 'capistrano-rails'
+  gem 'capistrano-rvm'
   gem 'capistrano3-unicorn'
 end
 
