@@ -17,3 +17,4 @@
 
 # Set secrets.yml in deployment separately
 /config/secrets.yml
+/config/database.yml
