@@ -58,6 +58,7 @@ group :development do
   gem 'capistrano-rails'
   gem 'capistrano-rvm'
   gem 'capistrano3-unicorn'
+  gem 'capistrano-secrets-yml', '~> 1.0.0'
 end
 
 # Use debugger
